@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Critical Thinking Test — Gloria Anzaldúa, “How to Tame a Wild Tongue”</title>
+  <style>
+    :root{
+      --bg:#0f172a; /* slate-900 */
+      --card:#111827ee; /* gray-900 */
+      --ink:#e5e7eb; /* gray-200 */
+      --muted:#94a3b8; /* slate-400 */
+      --accent:#38bdf8; /* sky-400 */
+      --good:#22c55e; /* green-500 */
+      --bad:#ef4444; /* red-500 */
+      --warn:#f59e0b; /* amber-500 */
+    }
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 800px at 100% -10%,#1e293b,#0b1220 60%,#05080f 100%);color:var(--ink);} 
+    .wrap{max-width:1100px;margin:0 auto;padding:48px 20px 72px;}
+    header{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+    h1{font-size:clamp(24px,2.6vw,38px);margin:0;font-weight:800;letter-spacing:.2px}
+    .badge{border:1px solid #334155;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px}
+    .card{background:linear-gradient(180deg,#0b1220 0,#0b1220cc 100%);border:1px solid #1f2937;border-radius:18px;padding:22px 20px;margin:14px 0 22px;box-shadow:0 10px 30px #0008}
+    .grid{display:grid;gap:18px}
+    @media (min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
+    .muted{color:var(--muted)}
+    summary{cursor:pointer;color:var(--accent)}
+    details{border-top:1px dashed #203047;padding-top:10px;margin-top:10px}
+    .q{margin:18px 0;padding:16px;border:1px solid #243244;border-radius:14px;background:#0b1220}
+    .q h3{margin:0 0 10px;font-size:16px}
+    .options{display:grid;gap:8px}
+    .options label{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid #1f2a3a;border-radius:12px;background:#0a1220}
+    textarea{width:100%;min-height:120px;border-radius:12px;border:1px solid #263244;padding:12px;background:#0a1220;color:var(--ink)}
+    input[type="text"], input[type="number"]{width:100%;border-radius:12px;border:1px solid #263244;padding:10px;background:#0a1220;color:var(--ink)}
+    .row{display:grid;gap:8px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid #243244;background:#0a1220}
+    .btns{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{border:1px solid #2a374a;background:#0a1220;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer}
+    .btn.primary{background:linear-gradient(180deg,#0ea5e9,#0284c7);border-color:#0369a1}
+    .btn.ghost{background:transparent}
+    .score{font-weight:800}
+    .good{color:var(--good)}
+    .bad{color:var(--bad)}
+    .warn{color:var(--warn)}
+    .k{font-size:12px;color:#9fb3c5}
+    .small{font-size:12px}
+    .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    footer{margin-top:22px;color:#7e8ca0;font-size:12px}
+    blockquote{margin:10px 0;padding-left:12px;border-left:3px solid #324256;color:#c7d2fe}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 5.5h16M4 12h16M4 18.5h16" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div>
+        <h1>Critical Thinking Test · Gloria Anzaldúa, “How to Tame a Wild Tongue”</h1>
+        <div class="muted small">Standalone HTML — auto‑scores objective items, collects open responses</div>
+      </div>
+      <span class="badge">Student View</span>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2 style="margin-top:0">Instructions</h2>
+        <p>This test is based on Gloria Anzaldúa’s essay <em>“How to Tame a Wild Tongue.”</em> Answer all questions. Multiple‑choice and true/false items are scored automatically. Short answer and essay items are saved locally in your browser and can be exported as a .json, .txt, or PDF file for submission.</p>
+        <ul class="muted">
+          <li>Recommended time: 35–45 minutes</li>
+          <li>Open the <strong>Export</strong> menu at the end to download your responses.</li>
+          <li>Auto‑graded items are worth 1 point each unless marked otherwise. Total auto‑graded points: <strong id="autoPointsTotal">—</strong>.</li>
+        </ul>
+        <div class="q" style="margin-top:14px" aria-label="Timer and options">
+          <div class="row" style="grid-template-columns: repeat(3, minmax(0,1fr));">
+            <label class="pill"><span>⏱️ <strong>Timer (minutes)</strong></span>
+              <input type="number" id="timerMinutes" min="1" step="1" value="40" />
+            </label>
+            <label class="pill"><span>🔀 <strong>Randomize Part A</strong></span>
+              <input type="checkbox" id="randPartA" checked />
+            </label>
+            <div class="pill" style="justify-content:space-between">
+              <span>🟢 <strong>Status</strong></span>
+              <span id="timerStatus" class="muted">Not started</span>
+            </div>
+          </div>
+          <div class="btns" style="margin-top:10px">
+            <button class="btn" id="startTimerBtn">Start Timer</button>
+            <button class="btn ghost" id="pauseTimerBtn" disabled>Pause</button>
+            <button class="btn ghost" id="resumeTimerBtn" disabled>Resume</button>
+            <button class="btn ghost" id="stopTimerBtn" disabled>Stop</button>
+          </div>
+          <div class="muted small">When the timer ends, inputs lock and your work is saved and scored automatically.</div>
+        </div>
+        <details>
+          <summary>Academic honesty & citation reminder</summary>
+          <p>Quote sparingly (short phrases only) and attribute ideas to the author by name when paraphrasing.</p>
+        </details>
+      </section>
+
+      <aside class="card">
+        <div class="row">
+          <label class="pill" title="Enter your info so it appears in the export.">
+            <span>🧑‍🎓 <strong>Student</strong></span>
+            <input type="text" id="studentName" placeholder="Full name" />
+          </label>
+          <label class="pill">
+            <span>🏫 <strong>Class/Section</strong></span>
+            <input type="text" id="classSection" placeholder="e.g., ENG 1301‑L" />
+          </label>
+          <label class="pill">
+            <span>📧 <strong>Email</strong></span>
+            <input type="text" id="studentEmail" placeholder="name@example.com" />
+          </label>
+        </div>
+        <details>
+          <summary>How scoring works</summary>
+          <p class="muted small">Auto‑graded items check exact option keys (MC/TF) or a set of acceptable answers (short fill‑in). Essays are teacher‑graded.</p>
+        </details>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2 style="margin-top:0">Part A — Reading Check & Vocabulary (Auto‑graded)</h2>
+      <div id="partA">
+
+      <div class="q" data-type="mc" data-key="a1">
+        <h3>1) The essay opens in which setting?</h3>
+        <div class="options">
+          <label><input type="radio" name="a1" value="dentist"/> A dentist’s office</label>
+          <label><input type="radio" name="a1" value="classroom"/> A classroom</label>
+          <label><input type="radio" name="a1" value="kitchen"/> A family kitchen</label>
+          <label><input type="radio" name="a1" value="border"/> A border checkpoint</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a2">
+        <h3>2) As a child, Anzaldúa recalls being punished at school for speaking Spanish at recess. What was the punishment?</h3>
+        <div class="options">
+          <label><input type="radio" name="a2" value="knuckles"/> Strikes on the knuckles with a sharp ruler</label>
+          <label><input type="radio" name="a2" value="detention"/> After‑school detention</label>
+          <label><input type="radio" name="a2" value="expulsion"/> Temporary suspension</label>
+          <label><input type="radio" name="a2" value="note"/> A warning note sent home</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a3">
+        <h3>3) At Pan American University, why were Chicano students required to take two speech classes?</h3>
+        <div class="options">
+          <label><input type="radio" name="a3" value="loseaccent"/> To “get rid of” their accents</label>
+          <label><input type="radio" name="a3" value="persuasion"/> To learn persuasive speaking</label>
+          <label><input type="radio" name="a3" value="debate"/> To prepare for debate tournaments</label>
+          <label><input type="radio" name="a3" value="theatre"/> To perform dramatic monologues</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="tf" data-key="a4">
+        <h3>4) True/False: “Wild tongues can’t be tamed; they can only be cut out.” appears as a claim in the essay.</h3>
+        <div class="options">
+          <label><input type="radio" name="a4" value="true"/> True</label>
+          <label><input type="radio" name="a4" value="false"/> False</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="tf" data-key="a5">
+        <h3>5) True/False: “En boca cerrada no entran moscas” is used to model outspoken resistance.</h3>
+        <div class="options">
+          <label><input type="radio" name="a5" value="true"/> True</label>
+          <label><input type="radio" name="a5" value="false"/> False</label>
+        </div>
+        <div class="k muted small">Tip: Consider how the proverb polices girls’ speech.</div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a6">
+        <h3>6) Why was hearing the word <em>nosotras</em> striking to Anzaldúa?</h3>
+        <div class="options">
+          <label><input type="radio" name="a6" value="masc"/> Because in her community, the masculine plural <em>nosotros</em> was used even for women</label>
+          <label><input type="radio" name="a6" value="notused"/> Because the word was unknown in Spanish</label>
+          <label><input type="radio" name="a6" value="english"/> Because it is an English borrowing</label>
+          <label><input type="radio" name="a6" value="slang"/> Because it is Pachuco slang</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a7">
+        <h3>7) Purists often labeled Chicano Spanish as…</h3>
+        <div class="options">
+          <label><input type="radio" name="a7" value="deficient"/> Deficient or a mutilation of Spanish</label>
+          <label><input type="radio" name="a7" value="prestige"/> A prestige dialect</label>
+          <label><input type="radio" name="a7" value="ancient"/> An ancient, unaltered form of Latin</label>
+          <label><input type="radio" name="a7" value="royal"/> The official royal register</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a8">
+        <h3>8) Which of the following is <em>not</em> in Anzaldúa’s list of home/learned tongues?</h3>
+        <div class="options">
+          <label><input type="radio" name="a8" value="stdeng"/> Standard English</label>
+          <label><input type="radio" name="a8" value="stdmex"/> Standard Mexican Spanish</label>
+          <label><input type="radio" name="a8" value="pachuco"/> Pachuco (caló)</label>
+          <label><input type="radio" name="a8" value="portuguese"/> Brazilian Portuguese</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a9">
+        <h3>9) Pachuco (caló) is described as…</h3>
+        <div class="options">
+          <label><input type="radio" name="a9" value="rebellion"/> A language of rebellion and secrecy mixing English and Spanish slang</label>
+          <label><input type="radio" name="a9" value="latin"/> A formal Latin register used in church</label>
+          <label><input type="radio" name="a9" value="news"/> A corrido style used to deliver news</label>
+          <label><input type="radio" name="a9" value="academic"/> An academic variety taught in university</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a10">
+        <h3>10) Which feature is mentioned among Chicano Spanish phonology?</h3>
+        <div class="options">
+          <label><input type="radio" name="a10" value="dropcon"/> Dropping consonants between vowels (e.g., <em>lado</em> → <em>lao</em>)</label>
+          <label><input type="radio" name="a10" value="tones"/> Use of lexical tone</label>
+          <label><input type="radio" name="a10" value="cases"/> Addition of grammatical case endings</label>
+          <label><input type="radio" name="a10" value="clicks"/> Adoption of click consonants</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a11">
+        <h3>11) An example of an anglicism/Spanglish adaptation in the essay is…</h3>
+        <div class="options">
+          <label><input type="radio" name="a11" value="watchar"/> <em>watchar</em> (from “watch”)</label>
+          <label><input type="radio" name="a11" value="vosotros"/> <em>vosotros</em></label>
+          <label><input type="radio" name="a11" value="usted"/> <em>usted</em></label>
+          <label><input type="radio" name="a11" value="hablo"/> <em>hablo</em></label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a12">
+        <h3>12) “Linguistic terrorism” in the essay refers most directly to…</h3>
+        <div class="options">
+          <label><input type="radio" name="a12" value="internalize"/> Internalized shame and policing of non‑standard varieties</label>
+          <label><input type="radio" name="a12" value="vowel"/> Vowel harmony in border dialects</label>
+          <label><input type="radio" name="a12" value="syntax"/> Preference for SVO syntax</label>
+          <label><input type="radio" name="a12" value="latinroots"/> Use of Latinate vocabulary</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a13">
+        <h3>13) By the end of the 20th century, Anzaldúa predicts the mother tongue for most Chicanos/Latinos in the U.S. will be…</h3>
+        <div class="options">
+          <label><input type="radio" name="a13" value="english"/> English</label>
+          <label><input type="radio" name="a13" value="spanish"/> Spanish</label>
+          <label><input type="radio" name="a13" value="latin"/> Latin</label>
+          <label><input type="radio" name="a13" value="nahuatl"/> Náhuatl</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a14">
+        <h3>14) “Ethnic identity is twin skin to linguistic identity” implies that…</h3>
+        <div class="options">
+          <label><input type="radio" name="a14" value="linked"/> Language and ethnicity are intimately linked in self‑regard</label>
+          <label><input type="radio" name="a14" value="separate"/> Language and ethnicity are unrelated</label>
+          <label><input type="radio" name="a14" value="skill"/> Identity is based only on language skill</label>
+          <label><input type="radio" name="a14" value="accent"/> Pride requires deleting one’s accent</label>
+        </div>
+      </div>
+
+      <div class="q" data-type="mc" data-key="a15">
+        <h3>15) Corridos on the border historically served to…</h3>
+        <div class="options">
+          <label><input type="radio" name="a15" value="newsheroes"/> Share news and celebrate Mexican/Chicano heroes</label>
+          <label><input type="radio" name="a15" value="math"/> Teach mathematics</label>
+          <label><input type="radio" name="a15" value="latinmass"/> Provide the Latin Mass</label>
+          <label><input type="radio" name="a15" value="recipes"/> Preserve recipes exclusively</label>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0">Part B — Short Answer (Instructor‑graded)</h2>
+
+      <div class="q" data-type="sa" data-id="b1">
+        <h3>16) Define <strong>code‑switching</strong> in your own words and give one example drawn from the essay or your experience.</h3>
+        <textarea placeholder="3–5 sentences"></textarea>
+      </div>
+
+      <div class="q" data-type="sa" data-id="b2">
+        <h3>17) Anzaldúa describes “overcoming the tradition of silence.” Identify two forces that enforced silence and explain one strategy she proposes or models to resist it.</h3>
+        <textarea placeholder="4–6 sentences"></textarea>
+      </div>
+
+      <div class="q" data-type="sa" data-id="b3">
+        <h3>18) What does Anzaldúa mean by “I am my language”? Connect this claim to a specific moment or image in the essay.</h3>
+        <textarea placeholder="4–6 sentences"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0">Part C — Application & Analysis (Instructor‑graded)</h2>
+
+      <div class="q" data-type="essay" data-id="c1">
+        <h3>19) Personal analysis (250–350 words)</h3>
+        <p class="muted small">Describe a time you altered your speech, accent, or language choice for acceptance or safety. Analyze the personal and social pressures at play. How do these pressures compare with those Anzaldúa details?</p>
+        <textarea placeholder="Type your response here (250–350 words recommended)"></textarea>
+      </div>
+
+      <div class="q" data-type="essay" data-id="c2">
+        <h3>20) Critical response (250–350 words)</h3>
+        <blockquote>“Who is to say that robbing a people of its language is less violent than war?” — Ray Gwyn Smith (quoted by Anzaldúa)</blockquote>
+        <p class="muted small">Evaluate this provocation with evidence from the essay and at least one outside example (lived experience, history, or research). Take a clear position and address a counter‑argument.</p>
+        <textarea placeholder="Type your response here (250–350 words recommended)"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0">Submit, Score, & Export</h2>
+      <div class="btns">
+        <button class="btn primary" id="scoreBtn">Score Auto‑graded Items</button>
+        <button class="btn" id="resetBtn">Reset Answers</button>
+        <button class="btn" id="exportJsonBtn">Export .json</button>
+        <button class="btn" id="exportTxtBtn">Export .txt</button>
+        <button class="btn" id="exportPdfBtn">Export PDF</button>
+        <button class="btn" id="exportBbCsvBtn">Export Blackboard CSV</button>
+        <button class="btn" id="exportQtiBtn">Export QTI XML</button>
+      </div>
+      <p id="scoreOut" class="muted">Score will appear here.</p>
+    </section>
+
+    <footer>
+      <div>Designed for classroom and remote use. This page stores your responses only in your browser until you export them.</div>
+      <div class="small">Reading basis: Gloria Anzaldúa, <em>How to Tame a Wild Tongue</em>. Questions paraphrase or reference specific passages to check comprehension and prompt analysis.</div>
+    </footer>
+  </div>
+
+  <script>
+    // --- Answer key for auto-graded items ---
+    const KEY = {
+      a1: 'dentist',
+      a2: 'knuckles',
+      a3: 'loseaccent',
+      a4: 'true',
+      a5: 'false',
+      a6: 'masc',
+      a7: 'deficient',
+      a8: 'portuguese',
+      a9: 'rebellion',
+      a10: 'dropcon',
+      a11: 'watchar',
+      a12: 'internalize',
+      a13: 'english',
+      a14: 'linked',
+      a15: 'newsheroes'
+    };
+
+    // Pre-calc total auto points
+    const autoPointsTotal = Object.keys(KEY).length;
+    document.getElementById('autoPointsTotal').textContent = autoPointsTotal;
+
+    // Collect and score
+    function collect() {
+      const payload = {
+        meta: {
+          ts: new Date().toISOString(),
+          student: document.getElementById('studentName').value || null,
+          email: document.getElementById('studentEmail').value || null,
+          section: document.getElementById('classSection').value || null,
+          assignment: 'Critical Thinking Test — Anzaldúa',
+          autograded_points_possible: autoPointsTotal
+        },
+        responses: {}
+      };
+
+      // Objective (MC/TF)
+      for (const id of Object.keys(KEY)) {
+        const group = document.querySelectorAll(`input[name="${id}"]`);
+        let val = null;
+        group.forEach(r => { if (r.checked) val = r.value; });
+        payload.responses[id] = { type: 'objective', value: val };
+      }
+
+      // Short Answer & Essays
+      document.querySelectorAll('.q[data-type="sa"], .q[data-type="essay"]').forEach(el => {
+        const id = el.getAttribute('data-id');
+        const value = el.querySelector('textarea')?.value ?? '';
+        const type = el.getAttribute('data-type');
+        payload.responses[id] = { type, value };
+      });
+
+      return payload;
+    }
+
+    function scoreObjective(payload){
+      let correct = 0, attempted = 0;
+      for (const [id, entry] of Object.entries(payload.responses)){
+        if (KEY[id]){
+          const val = entry.value;
+          if (val !== null) attempted++;
+          if (val === KEY[id]) correct++;
+        }
+      }
+      return { correct, attempted, total:autoPointsTotal };
+    }
+
+    document.getElementById('scoreBtn').addEventListener('click', () => {
+      const payload = collect();
+      const s = scoreObjective(payload);
+      const pct = s.total ? Math.round(100 * s.correct / s.total) : 0;
+      document.getElementById('scoreOut').innerHTML = `Auto‑graded score: <span class="score ${pct>=80?'good':(pct>=60?'warn':'bad')}">${s.correct} / ${s.total}</span> (${pct}%). <span class="muted">Attempted: ${s.attempted}.</span>`;
+      // Visual feedback on items
+      for (const id of Object.keys(KEY)){
+        const correctVal = KEY[id];
+        const nodes = document.querySelectorAll(`input[name="${id}"]`);
+        nodes.forEach(n => {
+          const parent = n.closest('label');
+          parent.style.outline = 'none';
+          parent.style.boxShadow = 'none';
+          if (n.value === correctVal) {
+            parent.style.boxShadow = 'inset 0 0 0 2px var(--good)';
+          } else if (n.checked && n.value !== correctVal) {
+            parent.style.boxShadow = 'inset 0 0 0 2px var(--bad)';
+          }
+        });
+      }
+      // Save snapshot
+      localStorage.setItem('anzaldua_test_payload', JSON.stringify(payload));
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      if (!confirm('Clear all answers?')) return;
+      document.querySelectorAll('input[type="radio"]').forEach(r=>r.checked=false);
+      document.querySelectorAll('textarea').forEach(t=>t.value='');
+      document.getElementById('scoreOut').textContent = 'Score will appear here.';
+      localStorage.removeItem('anzaldua_test_payload');
+    });
+
+    // Exporters
+    function download(filename, text){
+      const a = document.createElement('a');
+      a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      a.setAttribute('download', filename);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    document.getElementById('exportJsonBtn').addEventListener('click', () => {
+      const payload = collect();
+      download(`anzaldua_test_${Date.now()}.json`, JSON.stringify(payload, null, 2));
+    });
+
+    document.getElementById('exportTxtBtn').addEventListener('click', () => {
+      const p = collect();
+      const lines = [];
+      lines.push(`# Critical Thinking Test — Anzaldúa`);
+      lines.push(`Student: ${p.meta.student ?? ''}`);
+      lines.push(`Email: ${p.meta.email ?? ''}`);
+      lines.push(`Class: ${p.meta.section ?? ''}`);
+      lines.push(`Timestamp: ${p.meta.ts}`);
+      lines.push('');
+      lines.push('## Objective Answers:');
+      Object.keys(KEY).forEach((id,i)=>{
+        lines.push(`${i+1}. ${id}: ${p.responses[id]?.value ?? ''}`);
+      });
+      lines.push('');
+      lines.push('## Short Answers & Essays:');
+      for (const [id, entry] of Object.entries(p.responses)){
+        if (entry.type === 'sa' || entry.type === 'essay'){
+          lines.push(`\n[${id}]\n${entry.value}\n`);
+        }
+      }
+      download(`anzaldua_test_${Date.now()}.txt`, lines.join('\n'));
+    });
+
+    // === Timer & randomization ===
+    let timer = {remaining:0, handle:null, running:false};
+
+    function setTimerStatus(txt){
+      document.getElementById('timerStatus').textContent = txt;
+    }
+
+    function lockAllInputs(lock){
+      document.querySelectorAll('input, textarea, button').forEach(el=>{
+        if (['resetBtn','exportJsonBtn','exportTxtBtn','exportPdfBtn','exportBbCsvBtn','exportQtiBtn'].includes(el.id)) return; // keep exports enabled
+        if (el.id === 'pauseTimerBtn' || el.id === 'resumeTimerBtn' || el.id === 'stopTimerBtn' || el.id === 'scoreBtn') {
+          el.disabled = false; // controls remain
+          return;
+        }
+        if (el.closest('header')) return;
+        if (el.type === 'button') return;
+        el.disabled = !!lock;
+      });
+    }
+
+    function startTimer(){
+      const mins = Math.max(1, parseInt(document.getElementById('timerMinutes').value||'40',10));
+      timer.remaining = mins*60;
+      timer.running = true;
+      document.getElementById('startTimerBtn').disabled = true;
+      document.getElementById('pauseTimerBtn').disabled = false;
+      document.getElementById('stopTimerBtn').disabled = false;
+      // Randomize Part A if opted
+      if (document.getElementById('randPartA').checked){
+        const container = document.getElementById('partA');
+        const items = Array.from(container.querySelectorAll(':scope > .q'));
+        for (let i=items.length-1;i>0;i--){
+          const j = Math.floor(Math.random()*(i+1));
+          container.appendChild(items[j]);
+          items.splice(j,1);
+        }
+      }
+      tick();
+    }
+
+    function formatTime(s){
+      const m = Math.floor(s/60), r = s%60;
+      return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`;
+    }
+
+    function tick(){
+      if (!timer.running) return;
+      setTimerStatus("Time remaining: "+formatTime(timer.remaining));
+      if (timer.remaining <= 0){
+        clearInterval(timer.handle); timer.handle = null; timer.running=false;
+        setTimerStatus('Time up — locked');
+        // Auto‑score and save
+        document.getElementById('scoreBtn').click();
+        lockAllInputs(true);
+        return;
+      }
+      timer.remaining--;
+      if (!timer.handle) timer.handle = setInterval(tick, 1000);
+    }
+
+    document.getElementById('startTimerBtn').addEventListener('click', startTimer);
+    document.getElementById('pauseTimerBtn').addEventListener('click', ()=>{
+      if (!timer.running) return;
+      timer.running = false;
+      if (timer.handle) { clearInterval(timer.handle); timer.handle=null; }
+      document.getElementById('pauseTimerBtn').disabled = true;
+      document.getElementById('resumeTimerBtn').disabled = false;
+      setTimerStatus('Paused — '+formatTime(timer.remaining));
+    });
+    document.getElementById('resumeTimerBtn').addEventListener('click', ()=>{
+      if (timer.running) return;
+      timer.running = true; tick();
+      document.getElementById('resumeTimerBtn').disabled = true;
+      document.getElementById('pauseTimerBtn').disabled = false;
+    });
+    document.getElementById('stopTimerBtn').addEventListener('click', ()=>{
+      if (timer.handle) { clearInterval(timer.handle); timer.handle=null; }
+      timer.running=false; setTimerStatus('Stopped at '+formatTime(timer.remaining));
+      document.getElementById('pauseTimerBtn').disabled = true;
+      document.getElementById('resumeTimerBtn').disabled = true;
+      document.getElementById('startTimerBtn').disabled = false;
+    });
+
+    // === PDF export (formatted print view) ===
+    function exportPDF(){
+      const p = collect();
+      const s = scoreObjective(p);
+      const pct = s.total ? Math.round(100 * s.correct / s.total) : 0;
+      const html = `<!doctype html><html><head><meta charset="utf-8"><title>Submission — ${p.meta.student||''}</title>
+        <style>
+          body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:40px;color:#111}
+          h1{font-size:20px;margin:0 0 6px}
+          h2{font-size:16px;margin:22px 0 8px;border-bottom:1px solid #ddd;padding-bottom:4px}
+          .muted{color:#555}
+          .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+          pre{white-space:pre-wrap;background:#f7f7f7;border:1px solid #e5e5e5;padding:10px;border-radius:8px}
+          table{border-collapse:collapse;width:100%}
+          td,th{border:1px solid #ddd;padding:6px 8px;text-align:left}
+        </style></head><body>
+        <h1>Critical Thinking Test — Anzaldúa</h1>
+        <div class="muted">Timestamp: ${p.meta.ts}</div>
+        <div class="grid">
+          <div><strong>Student:</strong> ${p.meta.student||''}</div>
+          <div><strong>Email:</strong> ${p.meta.email||''}</div>
+          <div><strong>Class:</strong> ${p.meta.section||''}</div>
+          <div><strong>Auto‑graded:</strong> ${s.correct}/${s.total} (${pct}%)</div>
+        </div>
+        <h2>Objective Answers</h2>
+        <table><tr><th>#</th><th>Key</th><th>Answer</th></tr>
+        ${Object.keys(KEY).map((id,i)=>`<tr><td>${i+1}</td><td>${id}</td><td>${p.responses[id]?.value||''}</td></tr>`).join('')}
+        </table>
+        <h2>Short Answers & Essays</h2>
+        ${Object.entries(p.responses).filter(([id,e])=>e.type==='sa'||e.type==='essay').map(([id,e])=>`<h3>${id}</h3><pre>${(e.value||'').replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}</pre>`).join('')}
+        <script>window.print()</script>
+      </body></html>`;
+      const w = window.open('', '_blank');
+      w.document.open(); w.document.write(html); w.document.close();
+    }
+    document.getElementById('exportPdfBtn').addEventListener('click', exportPDF);
+
+    // === Blackboard CSV export (gradebook‑friendly) ===
+    function exportBbCsv(){
+      const p = collect();
+      const s = scoreObjective(p);
+      // Parse name
+      const full = (p.meta.student||'').trim();
+      let first = '', last = '';
+      if (full.includes(' ')) { first = full.split(/\s+/)[0]; last = full.split(/\s+/).slice(1).join(' '); }
+      else { first = full; last = ''; }
+      const username = (p.meta.email||'').split('@')[0]||'';
+      const rows = [
+        ['Username','Last Name','First Name','Grade'],
+        [username,last,first,String(s.correct)]
+      ];
+      const csv = rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',')).join('\n');
+      download(`anzaldua_blackboard_${Date.now()}.csv`, csv);
+    }
+    document.getElementById('exportBbCsvBtn').addEventListener('click', exportBbCsv);
+
+    // === Basic QTI 1.2 XML export (objective items only, experimental) ===
+    function exportQTI(){
+      const getStem = (id)=>{
+        const node = document.querySelector(`.q[data-key="${id}"] h3`);
+        return node ? node.textContent.trim() : id;
+      };
+      const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>`;
+      let xml = `${xmlHeader}\n<questestinterop>\n  <assessment ident="anzaldua" title="Critical Thinking Test — Part A">\n    <section ident="partA">`;
+      for (const id of Object.keys(KEY)){
+        const q = document.querySelector(`.q[data-key="${id}"]`);
+        const type = q.getAttribute('data-type');
+        const stem = getStem(id);
+        if (type === 'mc' || type === 'tf'){
+          const choices = Array.from(q.querySelectorAll('input[type="radio"]')).map(r=>({value:r.value,text:r.closest('label').innerText.trim()}));
+          const correct = KEY[id];
+          xml += `
+      <item ident="${id}" title="${stem}">
+        <presentation>
+          <material><mattext texttype="text/html">${stem}</mattext></material>
+          <response_lid ident="response1">
+            <render_choice>`;
+          xml += choices.map((c)=>`
+              <response_label ident="${c.value}"><material><mattext>${c.text}</mattext></material></response_label>`).join('');
+          xml += `
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes><decvar maxvalue="1" minvalue="0" varname="SCORE" vartype="Decimal"/></outcomes>
+          <respcondition continue="No">
+            <conditionvar><varequal respident="response1">${correct}</varequal></conditionvar>
+            <setvar varname="SCORE" action="Set">1</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>`;
+        }
+      }
+      xml += `
+    </section>
+  </assessment>
+</questestinterop>`;
+      download(`anzaldua_qti_${Date.now()}.xml`, xml);
+    }
+    document.getElementById('exportQtiBtn').addEventListener('click', exportQTI);
+
+    // === Restore saved state (if any) ===
+    (function restore(){
+      try{
+        const saved = JSON.parse(localStorage.getItem('anzaldua_test_payload') || 'null');
+        if (!saved) return;
+        document.getElementById('studentName').value = saved.meta.student || '';
+        document.getElementById('studentEmail').value = saved.meta.email || '';
+        document.getElementById('classSection').value = saved.meta.section || '';
+        for (const [id, entry] of Object.entries(saved.responses)){
+          if (KEY[id]){
+            const node = document.querySelector(`input[name="${id}"][value="${entry.value}"]`);
+            if (node) node.checked = true;
+          } else if (entry.type === 'sa' || entry.type === 'essay'){
+            const ta = document.querySelector(`.q[data-id="${id}"] textarea`);
+            if (ta) ta.value = entry.value;
+          }
+        }
+      } catch(e){/* ignore */}
+    })();
+  </script>
+</body>
+</html>
